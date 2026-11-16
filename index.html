@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English for Businesses</title>
+<meta name="description" content="Inglés para los equipos de tu empresa. Calcula tu plan grupal o personalizado y cotiza por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="English for Businesses">
+<meta property="og:description" content="Inglés para los equipos de tu empresa. Calcula tu plan grupal o personalizado y cotiza por WhatsApp.">
+<meta property="og:image" content="https://lopezdiazjcr.github.io/english-for-businesses/hero.jpg">
+<meta property="og:url" content="https://lopezdiazjcr.github.io/english-for-businesses/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: una sola columna editorial; héroe centrado con tarjetas flotando alrededor de un retrato,
+   después bandas que siguen Hook → Historia → Oferta, y la calculadora como el centro de la página.
+   Tema único y claro a propósito (copia el lenguaje de la referencia). */
+:root{
+  --paper:#F4F1EC;      /* fondo */
+  --card:#FFFFFF;       /* tarjetas */
+  --ink:#141412;        /* texto y botones */
+  --muted:#6E6A63;      /* texto secundario */
+  --line:#E2DDD5;       /* bordes finos */
+  --wash:#ECE8E1;       /* rellenos suaves */
+  --lime:#DDF27A;       /* chip de ícono */
+  --lilac:#CFC6F5;      /* chip de ícono */
+  --peach:#F8C9A4;      /* chip de ícono */
+  --sky:#BFE0F5;        /* chip de ícono */
+  --wa:#1FAF5A;         /* WhatsApp */
+  --display:"Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --body:"Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --r-lg:28px; --r-md:20px; --r-sm:14px;
+  --shadow:0 1px 1px rgba(20,20,18,.04), 0 12px 32px -12px rgba(20,20,18,.18);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--paper)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1160px;margin-inline:auto}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+.serif{font-family:var(--display);font-weight:400;letter-spacing:-.01em}
+.it{font-style:italic}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 22px;font:600 15px/1 var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-ink{background:var(--ink);color:#fff;box-shadow:0 8px 20px -10px rgba(20,20,18,.6)}
+.btn-ghost{background:var(--card);border-color:var(--line);color:var(--ink)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 24px -12px rgba(31,175,90,.7)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;padding-block:18px;background:linear-gradient(var(--paper) 70%, rgba(244,241,236,0))}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:700;font-size:18px;letter-spacing:-.02em;text-decoration:none;display:flex;align-items:baseline;gap:4px}
+.logo .serif{font-size:22px;font-style:italic;font-weight:400}
+.logo sup{font-size:10px;font-weight:500}
+.pills{display:flex;gap:4px;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;padding:4px;backdrop-filter:blur(8px)}
+.pills a{font-size:14px;text-decoration:none;padding:8px 16px;border-radius:999px;color:var(--ink)}
+.pills a:hover{background:var(--wash)}
+.nav .btn{padding:11px 18px;font-size:14px}
+.nav .btn .short{display:none}
+
+/* Héroe */
+.hero{position:relative;padding-top:40px;text-align:center}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 6px}
+.tag b{background:var(--ink);color:#fff;border-radius:999px;padding:3px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(46px, 8.4vw, 104px);line-height:.95;letter-spacing:-.025em;margin-top:22px}
+.hero h1 em{display:block}
+.hero .sub{max-width:560px;margin:22px auto 0;color:var(--muted);font-size:17px}
+.hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.hero .wrap > :not(.stage){position:relative;z-index:2}
+.stage{position:relative;z-index:1;margin-top:20px;height:clamp(340px, 42vw, 540px)}
+.portrait{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(820px, 120%);height:100%;max-width:none;object-fit:cover;object-position:50% 78%;
+  filter:grayscale(1) brightness(1.13) contrast(1.06);mix-blend-mode:multiply;
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 22%), radial-gradient(ellipse 60% 90% at 50% 70%, #000 60%, transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom, transparent 0, #000 22%), radial-gradient(ellipse 60% 90% at 50% 70%, #000 60%, transparent 100%);mask-composite:intersect}
+.glass{position:absolute;display:flex;align-items:center;gap:10px;text-align:left;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.9);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);
+  border-radius:var(--r-sm);padding:10px 14px 10px 10px;box-shadow:var(--shadow);animation:float 7s ease-in-out infinite}
+.glass .ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex:none}
+.glass .ic svg{width:16px;height:16px}
+.glass strong{display:block;font-size:14px;font-weight:600;line-height:1.2}
+.glass small{display:block;font-size:11.5px;color:var(--muted);line-height:1.3}
+.g1{left:18%;top:30%;transform:rotate(-6deg);animation-delay:-1s}
+.g2{left:24%;top:62%;transform:rotate(-3deg);animation-delay:-3s}
+.g3{right:17%;top:28%;transform:rotate(7deg);animation-delay:-2s}
+.g4{right:21%;top:62%;transform:rotate(4deg);animation-delay:-4s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.side{position:absolute;width:220px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:20px;text-align:left;box-shadow:var(--shadow)}
+.side h3{font-size:17px;font-weight:600;line-height:1.25;letter-spacing:-.01em;margin-top:14px}
+.side p{font-size:13.5px;color:var(--muted);margin-top:8px}
+.side.l{left:0;top:-250px;transform:rotate(-4deg)}
+.side.r{right:0;top:-150px;transform:rotate(4deg)}
+.wave{display:flex;gap:3px;align-items:center;height:22px}
+.wave i{width:3px;border-radius:3px;background:var(--ink);display:block}
+.avatars{display:flex}
+.avatars span{width:30px;height:30px;border-radius:50%;border:2px solid #fff;margin-left:-8px;display:grid;place-items:center;font-size:11px;font-weight:600}
+.avatars span:first-child{margin-left:0}
+.seal{position:absolute;right:2%;top:-330px;width:112px;height:112px;animation:spin 24s linear infinite}
+.seal text{font:600 9.6px var(--body);letter-spacing:.24em;fill:var(--ink)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.corner{position:absolute;bottom:28px;font-size:14px;color:var(--muted);text-align:left;line-height:1.4}
+.corner::before{content:"";display:block;width:28px;height:1px;background:var(--muted);margin-bottom:12px}
+.corner.l{left:0}
+.corner.r{right:0;text-align:right}
+.corner.r::before{margin-left:auto}
+.corner b{color:var(--ink);font-weight:600}
+
+/* Secciones */
+section.band{padding-block:clamp(72px, 10vw, 128px)}
+.head{max-width:720px}
+.head h2{font-family:var(--display);font-weight:400;font-size:clamp(36px, 5.2vw, 62px);line-height:1;letter-spacing:-.02em;margin-top:14px}
+.head p{color:var(--muted);font-size:17px;margin-top:16px;max-width:600px}
+.center{text-align:center;margin-inline:auto}
+.center p{margin-inline:auto}
+
+/* Costo de esperar */
+.pains{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px;margin-top:48px}
+.pain{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:28px}
+.pain .q{font-family:var(--display);font-size:30px;line-height:1.05;letter-spacing:-.01em}
+.pain p{color:var(--muted);margin-top:14px;font-size:15px}
+
+/* Pasos */
+.steps{display:grid;grid-template-columns:repeat(3, 1fr);gap:0;margin-top:48px;border-top:1px solid var(--line)}
+.step{padding:28px 28px 0 0}
+.step + .step{padding-left:28px;border-left:1px solid var(--line)}
+.step .n{font-family:var(--display);font-size:56px;line-height:1;font-style:italic}
+.step h3{font-size:19px;font-weight:600;margin-top:16px;letter-spacing:-.01em}
+.step p{color:var(--muted);margin-top:8px;font-size:15px}
+
+/* Modalidades */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column;gap:20px}
+.plan.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plan .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.plan h3{font-family:var(--display);font-weight:400;font-size:40px;line-height:1}
+.plan .for{font-size:15px;color:var(--muted);margin-top:8px;max-width:320px}
+.plan.dark .for{color:#B9B5AE}
+.chip{font-size:12px;font-weight:600;border-radius:999px;padding:6px 12px;background:var(--wash);white-space:nowrap}
+.plan.dark .chip{background:#2A2A27;color:#fff}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price .big{font-size:52px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.price span{color:var(--muted);font-size:15px}
+.plan.dark .price span{color:#B9B5AE}
+.facts{list-style:none;padding:0;margin:0;display:grid;gap:10px;border-top:1px solid var(--line);padding-top:20px}
+.plan.dark .facts{border-color:#33332F}
+.facts li{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.facts li span:last-child{font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+
+/* Calculadora */
+.calc{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:48px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:32px;min-width:0}
+.label{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.seg{display:grid;grid-template-columns:repeat(3, 1fr);background:var(--wash);border-radius:999px;padding:4px;margin-top:12px}
+.seg button{border:0;background:transparent;border-radius:999px;padding:12px 8px;font:600 14px var(--body);color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 2px 8px -2px rgba(20,20,18,.18)}
+.modenote{font-size:14px;color:var(--muted);margin-top:12px;min-height:42px}
+.qty{margin-top:28px;display:grid;gap:22px}
+.qrow{display:grid;gap:12px}
+.qline{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.qline label{font-weight:600;font-size:16px}
+.stepper{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.stepper button{width:42px;height:42px;border:0;background:transparent;font:500 22px/1 var(--body);cursor:pointer;color:var(--ink);border-radius:50%}
+.stepper button:hover{background:var(--wash)}
+.stepper input{width:56px;text-align:center;border:0;background:transparent;font:600 20px var(--body);font-variant-numeric:tabular-nums;color:var(--ink);-moz-appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+input[type=range]{width:100%;accent-color:var(--ink);height:24px}
+.tiers{margin-top:32px}
+.tierbar{display:grid;grid-template-columns:repeat(4, 1fr);gap:6px;margin-top:12px}
+.tier{border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 10px;text-align:center;transition:background .2s, color .2s, border-color .2s}
+.tier b{display:block;font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+.tier small{display:block;font-size:12px;color:var(--muted)}
+.tier.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.tier.on small{color:#C9C5BE}
+.tier.past{background:var(--wash)}
+.nudge{margin-top:14px;font-size:14.5px;background:var(--lime);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.nudge[data-mode="max"]{background:var(--wash)}
+.result{background:var(--ink);color:#fff;border-radius:var(--r-lg);padding:32px;position:sticky;top:96px;min-width:0}
+.result .label{color:#A8A49D}
+.total{font-size:clamp(44px, 6vw, 64px);font-weight:600;letter-spacing:-.035em;line-height:1;margin-top:10px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.estim{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;background:var(--peach);color:var(--ink);border-radius:999px;padding:5px 11px}
+.was{margin-top:10px;color:#A8A49D;font-size:15px}
+.was s{color:#7C7973}
+.was b{color:var(--lime);font-weight:600}
+.lines{list-style:none;margin:24px 0 0;padding:20px 0 0;border-top:1px solid #33332F;display:grid;gap:12px}
+.lines li{display:flex;justify-content:space-between;gap:12px;font-size:15px;color:#D8D4CD}
+.lines li span:last-child{color:#fff;font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+.result .btn{width:100%;justify-content:center;margin-top:26px;padding:17px 22px;font-size:16px}
+.fine{font-size:12.5px;color:#8E8A83;margin-top:14px;text-align:center}
+.incl{margin-top:28px;border-top:1px solid var(--line);padding-top:24px}
+.incl ul{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.incl li{display:flex;gap:10px;font-size:15px;align-items:flex-start}
+.incl li svg{width:18px;height:18px;flex:none;margin-top:3px}
+.err{margin-top:10px;font-size:14px;color:#9A3412}
+
+/* Tabla de tramos */
+.tbl{overflow-x:auto;margin-top:16px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums;min-width:460px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line)}
+th{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td:not(:first-child),th:not(:first-child){text-align:right}
+
+/* Historia */
+.story{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.story .quote{font-family:var(--display);font-size:clamp(32px, 4.4vw, 52px);line-height:1.05;letter-spacing:-.015em;color:var(--ink);margin:0}
+.story div p{color:var(--muted);font-size:17px;margin-top:16px}
+
+/* FAQ */
+.faq{max-width:780px;margin:40px auto 0;display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:4px 24px}
+summary{cursor:pointer;list-style:none;font-weight:600;font-size:17px;padding:18px 0;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:400;font-size:24px;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding-bottom:20px;font-size:15.5px}
+
+/* Cierre */
+.close{background:var(--ink);color:#fff;border-radius:36px;padding:clamp(48px, 8vw, 96px) clamp(24px, 6vw, 72px);text-align:center;position:relative;overflow:hidden}
+.close h2{font-family:var(--display);font-weight:400;font-size:clamp(40px, 6.4vw, 80px);line-height:.98;letter-spacing:-.02em}
+.close p{color:#B9B5AE;margin:18px auto 0;max-width:520px;font-size:17px}
+.close .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.close .btn-ghost{background:transparent;color:#fff;border-color:#3A3A36}
+.phone{font-variant-numeric:tabular-nums;color:#B9B5AE;font-size:14px;margin-top:18px}
+footer{padding-block:40px 120px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* Barra fija en móvil */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  padding:12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px))}
+.sticky .t{font-size:12px;color:var(--muted);line-height:1.2}
+.sticky .t b{display:block;font-size:19px;color:var(--ink);font-variant-numeric:tabular-nums}
+.sticky .btn{padding:13px 18px;font-size:14px}
+
+@media (max-width: 1080px){
+  .side,.seal{display:none}
+  .g1{left:6%}.g2{left:10%}.g3{right:6%}.g4{right:8%}
+}
+@media (max-width: 900px){
+  .pills{display:none}
+  .calc,.story,.plans{grid-template-columns:1fr}
+  .result{position:static}
+  .pains{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;border-top:0}
+  .step,.step + .step{padding:24px 0;border-left:0;border-top:1px solid var(--line)}
+  .story{gap:24px}
+}
+@media (max-width: 640px){
+  .nav .btn .long{display:none}
+  .nav .btn .short{display:inline}
+  .hero{padding-top:20px}
+  .hero .sub{font-size:16px}
+  .stage{height:400px;margin-top:24px}
+  .portrait{width:150%}
+  .glass{padding:8px 10px 8px 8px}
+  .glass small{display:none}
+  .glass .ic{width:26px;height:26px;border-radius:8px}
+  .g1{left:0;top:22%}.g2{left:2%;top:58%}.g3{right:0;top:20%}.g4{right:2%;top:54%}
+  .corner{display:none}
+  .panel,.result,.plan{padding:24px}
+  .tierbar{grid-template-columns:repeat(2, 1fr)}
+  .seg button{font-size:13px;padding:11px 4px}
+  .sticky{display:flex}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="English for Businesses, inicio">English <span class="serif">for</span> Businesses<sup>°</sup></a>
+    <nav class="pills" aria-label="Secciones">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#modalidades">Modalidades</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+    <a class="btn btn-ink js-wa" href="https://wa.me/50250595076" target="_blank" rel="noopener"><span class="long">Cotizar por WhatsApp</span><span class="short">Cotizar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ HÉROE (hook) ============ -->
+<section class="hero">
+  <div class="wrap">
+    <span class="tag"><b>Nuevo</b> Inglés para equipos de trabajo</span>
+    <h1>Tu equipo hablando inglés,<em class="it">sin salir de la oficina.</em></h1>
+    <p class="sub">Arma el plan de inglés de tu empresa según cuántas personas lo necesitan. Eliges clases grupales o personalizadas y ves el precio aquí mismo, antes de hablar con nadie.</p>
+    <div class="ctas">
+      <a class="btn btn-ink" href="#calculadora">Calcular mi plan
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost js-wa" href="https://wa.me/50250595076" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="var(--wa)" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.3-.7a11.5 11.5 0 0 1-4.5-4c-.4-.5-1-1.6-1-3s.8-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.3.5-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+        Hablar por WhatsApp</a>
+    </div>
+
+    <div class="stage" aria-hidden="true">
+      <img class="portrait" src="hero.jpg" alt="" width="1600" height="1205">
+
+      <div class="glass g1"><span class="ic" style="background:var(--lime)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><strong>Correos</strong><small>Responde sin traductor</small></span></div>
+      <div class="glass g2"><span class="ic" style="background:var(--lilac)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><strong>Reuniones</strong><small>Habla con tus clientes</small></span></div>
+      <div class="glass g3"><span class="ic" style="background:var(--peach)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></span><span><strong>Ventas</strong><small>Negocia en otro idioma</small></span></div>
+      <div class="glass g4"><span class="ic" style="background:var(--sky)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span><strong>Presentaciones</strong><small>Expón con confianza</small></span></div>
+
+      <div class="side l">
+        <div class="wave"><i style="height:8px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:7px"></i></div>
+        <h3>Clases en vivo, 3 veces por semana.</h3>
+        <p>Sesiones de 1.5 horas con profesor, 100% virtuales.</p>
+      </div>
+      <div class="side r">
+        <div class="avatars"><span style="background:var(--lime)">AB</span><span style="background:var(--lilac)">MC</span><span style="background:var(--peach)">LR</span><span style="background:var(--ink);color:#fff">+</span></div>
+        <h3>Desde 3 personas ya pagas menos.</h3>
+        <p>Entre más grande el equipo, mayor el descuento.</p>
+      </div>
+      <svg class="seal" viewBox="0 0 120 120">
+        <defs><path id="c" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+        <text><textPath href="#c">INGLÉS PARA EQUIPOS · CLASES EN VIVO ·</textPath></text>
+        <path d="M60 46c1.5 9 5 12.5 14 14-9 1.5-12.5 5-14 14-1.5-9-5-12.5-14-14 9-1.5 12.5-5 14-14Z" fill="var(--ink)"/>
+      </svg>
+      <p class="corner l"><b>Precio transparente.</b><br>Lo calculas tú, aquí mismo.</p>
+      <p class="corner r">Menos «¿me repite?».<br><b>Más negocios cerrados.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COSTO DE ESPERAR (historia / problema) ============ -->
+<section class="band">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">El costo de esperar</span>
+      <h2>Cada vez que nadie en tu equipo habla inglés, <em class="it">el negocio espera.</em></h2>
+    </div>
+    <div class="pains">
+      <article class="pain"><p class="q">El correo que se queda sin respuesta.</p><p>Un cliente escribe en inglés, nadie se anima a contestar y la venta se enfría mientras alguien busca quién lo traduzca.</p></article>
+      <article class="pain"><p class="q">Una sola persona traduce todo.</p><p>Si ella falta, se enferma o se va de la empresa, la conversación con tu proveedor se detiene con ella.</p></article>
+      <article class="pain"><p class="q">Contratas por el idioma, no por el talento.</p><p>Buscas perfiles bilingües afuera cuando podrías formar a la gente que ya conoce tu negocio y en quien ya confías.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section class="band" id="como-funciona" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>De la cotización a la primera clase, <em class="it">en tres pasos.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Calculas tu plan aquí</h3><p>Eliges cuántas personas entran y la modalidad. El precio y tu descuento aparecen al instante.</p></div>
+      <div class="step"><span class="n">2</span><h3>Lo confirmamos por WhatsApp</h3><p>Nos mandas tu cálculo con un clic. Coordinamos quiénes entran, horarios y la cotización final.</p></div>
+      <div class="step"><span class="n">3</span><h3>Tu equipo empieza a clases</h3><p>Clases en vivo, tres veces por semana. Cada quien se conecta desde la oficina o desde casa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODALIDADES (oferta) ============ -->
+<section class="band" id="modalidades" style="padding-top:0">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">Modalidades</span>
+      <h2>Dos formas de aprender. <em class="it">Un solo plan para tu empresa.</em></h2>
+      <p>Precio de lista por persona, por todo el programa. Tu descuento por volumen se aplica en la calculadora.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <div class="top"><div><h3>Grupal</h3><p class="for">Para equipos que necesitan una base sólida y constancia durante medio año.</p></div><span class="chip">Más elegida para equipos</span></div>
+        <div class="price"><span class="big" data-price="grupal">Q2,000</span><span>por persona · 6 meses</span></div>
+        <ul class="facts">
+          <li><span>Clases por semana</span><span>3</span></li>
+          <li><span>Duración de cada clase</span><span>1.5 horas</span></li>
+          <li><span>Tamaño del grupo</span><span>15 personas</span></li>
+          <li><span>Total del programa</span><span data-total="grupal">78 clases · 117 h</span></li>
+          <li><span>Costo por clase</span><span data-perclass="grupal">≈ Q26</span></li>
+        </ul>
+      </article>
+      <article class="plan dark">
+        <div class="top"><div><h3>Personalizada</h3><p class="for">Para directivos y vendedores que necesitan avanzar rápido, uno a uno con su profesor.</p></div><span class="chip">Avance más rápido</span></div>
+        <div class="price"><span class="big" data-price="personal">Q6,999</span><span>por persona · 3 meses</span></div>
+        <ul class="facts">
+          <li><span>Clases por semana</span><span>3</span></li>
+          <li><span>Duración de cada clase</span><span>1.5 horas</span></li>
+          <li><span>Formato</span><span>Uno a uno</span></li>
+          <li><span>Total del programa</span><span data-total="personal">39 clases · 58.5 h</span></li>
+          <li><span>Costo por clase</span><span data-perclass="personal">≈ Q179</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULADORA ============ -->
+<section class="band" id="calculadora" style="padding-top:0">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">Calculadora</span>
+      <h2>Arma el plan de tu equipo <em class="it">y mira el precio ya.</em></h2>
+      <p>Mínimo 3 personas. Desde ahí, entre más personas, mayor el descuento.</p>
+    </div>
+
+    <div class="calc">
+      <div class="panel">
+        <span class="label" id="lbl-modo">Modalidad</span>
+        <div class="seg" role="group" aria-labelledby="lbl-modo">
+          <button type="button" id="m-grupal" data-mode="grupal" aria-pressed="true">Grupal</button>
+          <button type="button" id="m-personal" data-mode="personal" aria-pressed="false">Personalizada</button>
+          <button type="button" id="m-mixta" data-mode="mixta" aria-pressed="false">Mixta</button>
+        </div>
+        <p class="modenote" id="modenote"></p>
+
+        <div class="qty">
+          <div class="qrow" id="row-g">
+            <div class="qline">
+              <label for="q-g" id="lbl-g">Personas en clases grupales</label>
+              <div class="stepper"><button type="button" data-step="g" data-d="-1" aria-label="Quitar una persona">−</button><input id="q-g" type="number" inputmode="numeric" min="0" max="100" value="5"><button type="button" data-step="g" data-d="1" aria-label="Agregar una persona">+</button></div>
+            </div>
+            <input type="range" id="r-g" min="0" max="40" value="5" aria-labelledby="lbl-g">
+          </div>
+          <div class="qrow" id="row-p">
+            <div class="qline">
+              <label for="q-p" id="lbl-p">Personas en clases personalizadas</label>
+              <div class="stepper"><button type="button" data-step="p" data-d="-1" aria-label="Quitar una persona">−</button><input id="q-p" type="number" inputmode="numeric" min="0" max="100" value="2"><button type="button" data-step="p" data-d="1" aria-label="Agregar una persona">+</button></div>
+            </div>
+            <input type="range" id="r-p" min="0" max="40" value="2" aria-labelledby="lbl-p">
+          </div>
+          <p class="err" id="err" hidden></p>
+        </div>
+
+        <div class="tiers">
+          <span class="label">Descuento por volumen</span>
+          <div class="tierbar" id="tierbar"></div>
+          <p class="nudge" id="nudge"></p>
+        </div>
+
+        <div class="incl">
+          <span class="label">Lo que incluye tu plan</span>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Clases en vivo con profesor, 100% virtuales</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>3 clases por semana de 1.5 horas cada una</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Grupal, personalizada o una mezcla de las dos</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Un solo plan y una sola cotización para todo tu equipo</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Coordinación directa por WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="result" aria-live="polite">
+        <span class="label">Inversión total del equipo</span>
+        <p class="total" id="o-total">Q0</p>
+        <span class="estim" id="o-estim" hidden>Precio estimado · lo confirmamos por WhatsApp</span>
+        <p class="was" id="o-was"></p>
+        <ul class="lines" id="o-lines"></ul>
+        <a class="btn btn-wa" id="o-cta" href="https://wa.me/50250595076" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.3-.7a11.5 11.5 0 0 1-4.5-4c-.4-.5-1-1.6-1-3s.8-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.3.5-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+          Enviar mi plan por WhatsApp</a>
+        <p class="fine">Se abre WhatsApp con tu cálculo ya escrito. Precios en quetzales, por todo el programa.</p>
+      </aside>
+    </div>
+
+    <div class="panel" style="margin-top:16px">
+      <span class="label">Tabla de precios por persona</span>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Tamaño del equipo</th><th>Descuento</th><th>Grupal (6 meses)</th><th>Personalizada (3 meses)</th></tr></thead>
+          <tbody id="tbl"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HISTORIA ============ -->
+<section class="band" style="padding-top:0">
+  <div class="wrap story">
+    <p class="quote">Queríamos abrir un club de lectura <em class="it">y terminamos abriendo una academia de inglés.</em></p>
+    <div>
+      <span class="eyebrow">Por qué existe</span>
+      <p>La academia nació en Guatemala a finales de 2024, con clases en vivo y profesores que acompañan a cada alumno. En ese tiempo vimos que muchos alumnos llegaban por lo mismo: su trabajo les pedía inglés.</p>
+      <p>English for Businesses lleva esas mismas clases a las empresas, con un plan pensado para el tamaño de cada equipo y un precio que el dueño del negocio puede calcular solo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREGUNTAS ============ -->
+<section class="band" id="preguntas" style="padding-top:0">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Lo que más nos preguntan <em class="it">los dueños de negocio.</em></h2>
+    </div>
+    <div class="faq">
+      <details><summary>¿Cuál es el mínimo de personas?</summary><p>Tres. Desde la tercera persona tu empresa ya tiene un descuento por volumen.</p></details>
+      <details><summary>¿Puedo combinar clases grupales y personalizadas?</summary><p>Sí. Usa la opción «Mixta» en la calculadora: por ejemplo, tus gerentes en personalizadas y el resto del equipo en grupales. El descuento se calcula con el total de personas.</p></details>
+      <details><summary>¿Qué pasa si somos más de 15 personas?</summary><p>Desde 10 personas el descuento llega a su máximo y el precio por persona se mantiene. Desde 16 personas el total que ves es un estimado: te confirmamos la cotización final por WhatsApp.</p></details>
+      <details><summary>¿Las clases son presenciales?</summary><p>Son clases en vivo y 100% virtuales. Cada persona se conecta desde la oficina o desde su casa.</p></details>
+      <details><summary>¿En qué moneda están los precios?</summary><p>En quetzales. Son por persona y cubren todo el programa: 6 meses en grupal y 3 meses en personalizada.</p></details>
+      <details><summary>¿Cómo se paga?</summary><p>Lo coordinamos contigo por WhatsApp cuando confirmes el plan de tu equipo.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIERRE ============ -->
+<section style="padding-bottom:0">
+  <div class="wrap close">
+    <h2>El próximo correo en inglés <em class="it">lo contesta tu equipo.</em></h2>
+    <p>Calcula tu plan en un minuto y mándanoslo por WhatsApp. Te respondemos con la cotización final.</p>
+    <div class="ctas">
+      <a class="btn btn-wa js-wa-plan" href="https://wa.me/50250595076" target="_blank" rel="noopener">Enviar mi plan por WhatsApp</a>
+      <a class="btn btn-ghost" href="#calculadora">Volver a la calculadora</a>
+    </div>
+    <p class="phone">WhatsApp: +502 5059 5076</p>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <span>English for Businesses · Guatemala</span>
+  <span>Precios en quetzales, por persona, por todo el programa.</span>
+</footer>
+
+<div class="sticky" role="region" aria-label="Resumen de tu plan">
+  <span class="t">Tu plan<b id="s-total">Q0</b></span>
+  <a class="btn btn-wa js-wa-plan" href="https://wa.me/50250595076" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+</div>
+
+<script>
+/* ===== Todo lo editable vive aquí ===== */
+const CFG = {
+  whatsapp: "50250595076",
+  moneda: "Q",
+  modalidades: {
+    grupal:   { nombre: "Grupal",        precio: 2000, meses: 6, clasesSemana: 3, horasClase: 1.5 },
+    personal: { nombre: "Personalizada", precio: 6999, meses: 3, clasesSemana: 3, horasClase: 1.5 }
+  },
+  minimo: 3,
+  // Descuento por tamaño total del equipo. Desde el último tramo el precio por persona ya no baja.
+  tramos: [
+    { desde: 3,  hasta: 4,    desc: 0.05 },
+    { desde: 5,  hasta: 6,    desc: 0.08 },
+    { desde: 7,  hasta: 9,    desc: 0.11 },
+    { desde: 10, hasta: null, desc: 0.15 }
+  ],
+  estimadoDesde: 16 // desde aquí el total se muestra como estimado
+};
+
+const $ = s => document.querySelector(s);
+const fmt = n => CFG.moneda + Math.round(n).toLocaleString("en-US");
+const pct = d => Math.round(d * 100) + "%";
+const clases = m => Math.round(m.meses * 52 / 12) * m.clasesSemana; // 6 m → 26 sem → 78 · 3 m → 13 sem → 39
+const tramoDe = n => CFG.tramos.slice().reverse().find(t => n >= t.desde) || null;
+const unit = (m, d) => Math.round(m.precio * (1 - d)); // precio por persona, redondeado al quetzal
+
+const state = { mode: "grupal", g: 5, p: 2 };
+const NOTES = {
+  grupal: "Grupos de 15 personas · 3 clases por semana de 1.5 h · 6 meses.",
+  personal: "Uno a uno con el profesor · 3 clases por semana de 1.5 h · 3 meses.",
+  mixta: "Combina las dos. El descuento se calcula con el total de personas del equipo."
+};
+
+function counts(){
+  if (state.mode === "grupal") return { g: state.g, p: 0 };
+  if (state.mode === "personal") return { g: 0, p: state.p };
+  return { g: state.g, p: state.p };
+}
+
+function calc(){
+  const { g, p } = counts();
+  const n = g + p;
+  const t = tramoDe(n);
+  const d = t ? t.desc : 0;
+  const G = CFG.modalidades.grupal, P = CFG.modalidades.personal;
+  const ug = unit(G, d), up = unit(P, d);
+  const total = g * ug + p * up;
+  const lista = g * G.precio + p * P.precio;
+  return { g, p, n, t, d, ug, up, total, lista, ahorro: lista - total, valido: n >= CFG.minimo };
+}
+
+function waText(r){
+  const G = CFG.modalidades.grupal, P = CFG.modalidades.personal;
+  const L = ["Hola, quiero cotizar English for Businesses para mi empresa.", ""];
+  L.push("• Personas: " + r.n);
+  if (r.g) L.push("• Grupal (" + G.meses + " meses): " + r.g + " × " + fmt(r.ug) + " = " + fmt(r.g * r.ug));
+  if (r.p) L.push("• Personalizada (" + P.meses + " meses): " + r.p + " × " + fmt(r.up) + " = " + fmt(r.p * r.up));
+  L.push("• Descuento por volumen: " + pct(r.d));
+  L.push("• Total " + (r.n >= CFG.estimadoDesde ? "estimado" : "calculado") + ": " + fmt(r.total));
+  L.push("", "¿Me ayudan con los siguientes pasos?");
+  return L.join("\n");
+}
+const waURL = txt => "https://wa.me/" + CFG.whatsapp + (txt ? "?text=" + encodeURIComponent(txt) : "");
+
+function render(){
+  // controles
+  document.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.mode === state.mode)));
+  $("#modenote").textContent = NOTES[state.mode];
+  $("#row-g").hidden = state.mode === "personal";
+  $("#row-p").hidden = state.mode === "grupal";
+  $("#lbl-g").textContent = state.mode === "mixta" ? "En clases grupales" : "Personas en tu equipo";
+  $("#lbl-p").textContent = state.mode === "mixta" ? "En clases personalizadas" : "Personas en tu equipo";
+  ["g","p"].forEach(k => { $("#q-" + k).value = state[k]; $("#r-" + k).value = Math.min(state[k], 40); });
+
+  const r = calc();
+
+  // tramos
+  $("#tierbar").innerHTML = CFG.tramos.map(t => {
+    const on = r.t === t, past = r.t && t.desde < r.t.desde;
+    const rango = t.hasta ? t.desde + "–" + t.hasta : t.desde + " o más";
+    return '<div class="tier' + (on ? " on" : past ? " past" : "") + '"><b>' + pct(t.desc) + '</b><small>' + rango + ' personas</small></div>';
+  }).join("");
+
+  const nudge = $("#nudge");
+  const next = CFG.tramos.find(t => t.desde > r.n);
+  if (!r.valido) {
+    const falta = CFG.minimo - r.n;
+    nudge.dataset.mode = "";
+    nudge.textContent = "Agrega " + falta + (falta === 1 ? " persona" : " personas") + " para llegar al mínimo de " + CFG.minimo + " y activar tu primer descuento de " + pct(CFG.tramos[0].desc) + ".";
+  } else if (next) {
+    const falta = next.desde - r.n;
+    nudge.dataset.mode = "";
+    nudge.textContent = "Con " + falta + (falta === 1 ? " persona más" : " personas más") + " tu descuento sube de " + pct(r.d) + " a " + pct(next.desc) + ".";
+  } else {
+    nudge.dataset.mode = "max";
+    nudge.textContent = "Tienes el descuento máximo (" + pct(r.d) + "). Desde aquí el precio por persona se mantiene.";
+  }
+
+  // resultado
+  $("#err").hidden = r.valido;
+  $("#err").textContent = r.valido ? "" : "El plan para empresas empieza en " + CFG.minimo + " personas.";
+  $("#o-total").textContent = r.valido ? fmt(r.total) : "—";
+  $("#s-total").textContent = r.valido ? fmt(r.total) : "Mínimo " + CFG.minimo;
+  $("#o-estim").hidden = !(r.valido && r.n >= CFG.estimadoDesde);
+  $("#o-was").innerHTML = r.valido
+    ? 'Precio de lista <s>' + fmt(r.lista) + '</s> · ahorras <b>' + fmt(r.ahorro) + '</b>'
+    : "Elige al menos " + CFG.minimo + " personas para ver tu precio.";
+
+  const G = CFG.modalidades.grupal, P = CFG.modalidades.personal;
+  const lines = [];
+  if (r.valido) {
+    lines.push(["Personas en el plan", r.n]);
+    if (r.g) lines.push(["Grupal · " + r.g + " × " + fmt(r.ug), fmt(r.g * r.ug)]);
+    if (r.p) lines.push(["Personalizada · " + r.p + " × " + fmt(r.up), fmt(r.p * r.up)]);
+    if (r.g) lines.push(["Costo por clase · grupal", "≈ " + fmt(r.ug / clases(G))]);
+    if (r.p) lines.push(["Costo por clase · personalizada", "≈ " + fmt(r.up / clases(P))]);
+    const horas = r.g * clases(G) * G.horasClase + r.p * clases(P) * P.horasClase;
+    lines.push(["Horas de clase para tu equipo", horas.toLocaleString("en-US") + " h"]);
+  }
+  $("#o-lines").innerHTML = lines.map(l => "<li><span>" + l[0] + "</span><span>" + l[1] + "</span></li>").join("");
+
+  // enlaces de WhatsApp con el cálculo
+  const href = r.valido ? waURL(waText(r)) : waURL("Hola, quiero cotizar English for Businesses para mi empresa.");
+  const cta = $("#o-cta");
+  cta.href = href;
+  cta.setAttribute("aria-disabled", String(!r.valido));
+  document.querySelectorAll(".js-wa-plan").forEach(a => a.href = href);
+}
+
+// tabla de tramos (estática, sale de la config)
+(function(){
+  const G = CFG.modalidades.grupal, P = CFG.modalidades.personal;
+  $("#tbl").innerHTML = CFG.tramos.map(t => {
+    const rango = t.hasta ? t.desde + " a " + t.hasta + " personas" : t.desde + " o más personas";
+    return "<tr><td>" + rango + "</td><td>" + pct(t.desc) + "</td><td>" + fmt(unit(G, t.desc)) + "</td><td>" + fmt(unit(P, t.desc)) + "</td></tr>";
+  }).join("");
+  document.querySelectorAll(".js-wa").forEach(a => a.href = waURL("Hola, quiero información de English for Businesses para mi empresa."));
+})();
+
+// eventos
+document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
+  state.mode = b.dataset.mode;
+  if (state.mode === "grupal" && state.g < CFG.minimo) state.g = CFG.minimo;
+  if (state.mode === "personal" && state.p < CFG.minimo) state.p = CFG.minimo;
+  render();
+}));
+const clamp = v => Math.max(0, Math.min(100, Math.round(Number(v) || 0)));
+document.querySelectorAll("[data-step]").forEach(b => b.addEventListener("click", () => {
+  const k = b.dataset.step; state[k] = clamp(state[k] + Number(b.dataset.d)); render();
+}));
+["g","p"].forEach(k => {
+  $("#q-" + k).addEventListener("input", e => { state[k] = clamp(e.target.value); render(); });
+  $("#r-" + k).addEventListener("input", e => { state[k] = clamp(e.target.value); render(); });
+});
+$("#o-cta").addEventListener("click", e => { if (!calc().valido) e.preventDefault(); });
+
+render();
+</script>
+
+</body>
+</html>
